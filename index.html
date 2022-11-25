@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Better Health</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script >
+          
+            function switchMode() {
+                let moon = document.getElementById("moon");
+                if (moon.className == "moon") {
+                    moon.className = "sun";
+                    document.body.style.backgroundColor = "#141D26";
+                    document.body.style.color = "#fff";
+                } else {
+                    moon.className = "moon";
+                    document.body.style.backgroundColor = "#fff";
+                    document.body.style.color = "#000";
+                }
+            }
+            
+          
+            
+            $(function(){
+                n=new Date();
+                y= n.getFullYear();
+                m=n.getMonth()+1;
+                d=n.getDate();
+                document.getElementById("date").innerHTML=m+"/"+d+"/"+y;
+            });
+            
+           
+                "use strict";
+$(document).ready(() => {
+
+    // process each img tag
+    $("#image_rollovers img").each( (index, img) => {
+        const oldURL = img.src;      // gets the src attribute
+        const newURL = img.id;       // gets the id attribute
+
+        // preload rollover image		
+        const rolloverImage = new Image();
+        rolloverImage.src = newURL;
+
+        // set up event handlers for hovering over an image
+        $(img).hover(   // use jQuery syntax to access hover() method
+            () => img.src = newURL,  // hover over
+            () => img.src = oldURL   // hover out
+        ); 
+    });
+    
+});
+        </script>
+        <script type="text/javascript">
+            $("document").ready(function () {
+                $("h1").css("color", " green");
+            });
+        </script>
+    </head>
+    <body>
+        <header class="logo">
+            <a href='index.html'><h1>Better Health</h1></a><img src="images/icon.PNG" alt="icon" width="100"/>
+        </header>
+        <div class='grid-container'>
+            <div class="night-toggle" onClick="switchMode()">
+                <div id="moon" class="moon"></div>
+            </div>
+            <!-- optional -->
+            <div class="opt">
+                <div class="break"></div>
+            </div>
+            <div class ="nav">
+                <nav class="topnav" id="myTopnav">
+                    <a href="runinig.html" id="topNavP">Running </a>
+                    <a href="swim.html" id="topNavP">Swimming</a>
+                    <a href="#" id="topNavP">Hiking</a>
+                    <a href="#" id="topNavP">Why outdoor activities?</a>
+
+                    <form id="searchBar">
+                  <input type="text" class="field1" placeholder="Search.." name="search" id="searchInput">
+                  <input type="submit" class="field2" title="search" id="searchButton" value="search">
+                </form>
+                    <div class="input">
+                        <a href="login.html"><input type="submit" name="submit" id="submit" value="Login"></a>
+                    </div>
+            </div>
+            
+
+            <div class="hero">
+                <ul id="image_rollovers">
+                    <li> <img  src="images/logo.jpg" alt="logo" id="images/yoga.jpg"/></li>
+                </ul>
+            </div>
+            <div class="running">
+                <a href="runinig.html"><img src="images/run1.jpg" alt="image1"/></a>
+                 <h3>Running</h3>
+            </div>
+
+            <div class="swim">
+                <a href="swim.html"><img  src="images/swim.jpg" alt="image2"></a>
+                  <h3>Swimming</h3>
+            </div>
+            <div class="hiking">
+                <a href="hiking.html"><img src="images/hiking.jpg" alt="image3"/></a>
+                 <h3>Hiking</h3>
+            </div>
+
+           
+                <footer class="footer">
+         
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="contact.html">Contact US</a></li>
+      <li class="menu__item"><a class="menu__link" href="login.html">Admin Area</a></li>
+      <li class="menu__item"><a class="menu__link" href="registration.html">Registration Page</a></li>
+      
+      
+
+    </ul>
+    <p>&copy;2022 BetterHealth | All Rights Reserved</p>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+              
+                    <address>
+                        <div class="address"><h1 class="h1">Written by K00274622</h1></div>
+                        <p id="date"></p>
+                    </address>
+
+                </footer>
+            
+        </div>
+    </body>
+</html>

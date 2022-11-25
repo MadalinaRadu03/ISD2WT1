@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/register.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script>
+        
+        function validate() {
+            var name_val = document.getElementById("name").value;
+            if (name_val == null || name_val == "") {
+                alert("Please enter your name");
+                return false;
+            }
+            var email1_val = document.getElementById("email1").value;
+            if (email1_val == null || email1_val == "") {
+                alert("Please enter your email.");
+                return false;
+            }
+            var email2_val = document.getElementById("email2").value;
+            if (email2_val == null || email2_val == "") {
+                alert("Please retype your email.");
+                return false;
+            }
+            var comment_val = document.getElementById("query").value;
+            if (comment_val == null || comment_val == "") {
+                alert("Please enter your comment");
+                return false;
+            }
+
+
+        var email = document.getElementById("email1").value;
+        var retype = document.getElementById("email2").value;
+
+        if (email != retype) {
+            alert("Email addresses are not the same.");
+            return false; 
+        }
+            return true;
+        
+        }
+        
+    $(function () {
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    })       
+     function switchMode() {
+                let moon = document.getElementById("moon");
+                if (moon.className == "moon") {
+                    moon.className = "sun";
+                    document.body.style.backgroundColor = "#141D26";
+                    document.body.style.color = "#fff";
+                } else {
+                    moon.className = "moon";
+                    document.body.style.backgroundColor = "#fff";
+                    document.body.style.color = "#000";
+                }
+            }
+    
+    
+       </script>
+</head>
+<body>
+    
+<header>
+  <div class="logo">
+         <a href='index.html'><h1>Better Health</h1></a><img src="images/icon.PNG" alt="icon" width="100"/>
+      </div>
+      <div class="grid-container">
+          <div class="night-toggle" onClick="switchMode()">
+                <div id="moon" class="moon"></div>
+            </div>
+            <!-- optional -->
+            <div class="opt">
+                <div class="break"></div>
+            </div>
+       <div class ="nav">
+           
+                <nav class="topnav" id="myTopnav">
+                    <a href="runinig.html" id="topNavP">Running </a>
+                    <a href="swim.html" id="topNavP">Swimming</a>
+                    <a href="#" id="topNavP">Hiking</a>
+                    <a href="#" id="topNavP">Why outdoor activities?</a>
+
+                    <form id="searchBar">
+                  <input type="text" class="field1" placeholder="Search.." name="search" id="searchInput">
+                  <input type="submit" class="field2" title="search" id="searchButton" value="search">
+                </form>
+                    <div class="input">
+                        <input type="submit" name="submit" id="submit" value="Login">
+                        
+                    </div>
+            </div>
+    
+    </header>
+    <div class="form">
+        <form action="" method="post" id="formContactUs" onSubmit="return validate();">
+            <h1>Log In/ Sign Up</h1>
+            <p>
+                
+            <label for="lastname">Name:</label>
+            <input type="text" name="name"  id="name" placeholder="Enter name">
+            
+            </p>
+                
+           <p>
+               <label for="lastname">Password:</label> <input type="password" z="FakePSW" id="myInput">
+            <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;" onclick="myFunction()"></i>
+           <script>                    
+            function myFunction() {
+              var x = document.getElementById("myInput");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            }           
+                    </script>
+            </p>
+            <p>
+                <label for="email1">Email:</label>
+                <input type="email" name="email1" id="email1" placeholder="Enter@email" >
+            </p>
+            <p><label for="email2">Retype your Email:*</label>
+                <input type="email" name="email2" id="email2" size="20" placeholder="Retype@email">
+            </p>
+            <p class="h">
+            <input class="submit" type="submit" name="submit" id="submit" >
+            </p>
+         
+            <p><button type="button" onclick="location.href="index.html">Back</button></p>
+               
+        </form>
+                </div>
+    </div>
+
+                <footer class="footer">
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="contact.html">Contact US</a></li>
+      <li class="menu__item"><a class="menu__link" href="login.html">Admin Area</a></li>
+      <li class="menu__item"><a class="menu__link" href="registration.html">Registration Page</a></li>
+      
+      
+
+    </ul>
+    <p>&copy;2022 BetterHealth | All Rights Reserved</p>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+              
+                    <address>
+                        <div class="address"><h1 class="h1">Written by K00274622</h1></div>
+                        <p id="date"></p>
+                    </address>
+
+                </footer>
+        </div>
+
+    </body>
+</html>
+    

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Better Health</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/run.css">
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script>
+            function switchMode() {
+                let moon = document.getElementById("moon");
+                if (moon.className == "moon") {
+                    moon.className = "sun";
+                    document.body.style.backgroundColor = "#141D26";
+                    document.body.style.color = "#fff";
+                } else {
+                    moon.className = "moon";
+                    document.body.style.backgroundColor = "#fff";
+                    document.body.style.color = "#000";
+                }
+            }
+            function calculate() {
+                //Need to determine the constant of some id functions.
+                var bmi;
+                var result = document.getElementById("result");
+                //The value of the height slider
+                var height = parseInt(document.getElementById("height").value);
+                //The value of the weight slider
+                var weight = parseInt(document.getElementById("weight").value);
+
+                //The value of height and width should be displayed in the webpage using "textContent".
+                document.getElementById("weight-val").textContent = weight + " kg";
+                document.getElementById("height-val").textContent = height + " cm";
+
+//Now I have added the formula for calculating BMI in "bmi"
+                bmi = (weight / Math.pow((height / 100), 2)).toFixed(1);
+                //With the help of "textContent" we have arranged to display in the result page of BMI
+                result.textContent = bmi;
+
+
+                //Now we have to make arrangements to show the text
+
+
+                //When the BMI is less than 18.5, you can see the text below
+                if (bmi < 18.5) {
+                    category = "Underweight";
+                    result.style.color = "#ffc44d";
+                }
+
+                //If BMI is >=18.5 and <=24.9
+                else if (bmi >= 18.5 && bmi <= 24.9) {
+                    category = "Normal Weight ";
+                    result.style.color = "#0be881";
+                }
+
+                //If BMI is >= 25 and <= 29.9 
+                else if (bmi >= 25 && bmi <= 29.9) {
+                    category = "Overweight ";
+                    result.style.color = "#ff884d";
+                }
+
+                //If BMI is <= 30
+                else {
+                    category = "Obese ";
+                    result.style.color = "#ff5e57";
+                }
+                //All of the above text is stored in "category".
+
+//Now you have to make arrangements to display the information in the webpage with the help of "textContent"
+                document.getElementById("category").textContent = category;
+            }
+
+            "use strict";
+            $(document).ready(() => {
+
+                // process each img tag
+                $("#image_rollovers img").each((runinig, img) => {
+                    const oldURL = img.src;      // gets the src attribute
+                    const newURL = img.id;       // gets the id attribute
+
+                    // preload rollover image		
+                    const rolloverImage = new Image();
+                    rolloverImage.src = newURL;
+
+                    // set up event handlers for hovering over an image
+                    $(img).hover(// use jQuery syntax to access hover() method
+                            () => img.src = newURL, // hover over
+                            () => img.src = oldURL   // hover out
+                    );
+                });
+
+            });
+        </script>
+        <script type="text/javascript">
+            $("document").ready(function () {
+                $("h1").css("color", "green ");
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Running</h1>
+        </header>
+
+        <div class="night-toggle" onClick="switchMode()">
+            <div id="moon" class="moon"></div>
+        </div>
+        <!-- optional -->
+        <div class="opt">
+            <div class="break"></div>
+        </div>
+        <div class ="nav">
+            <nav class="topnav" id="myTopnav">
+                <a href="index.html" id="topNavP">Home</a>
+                
+                <a href="swim.html" id="topNavP">Swimming</a>
+                <a href="#" id="topNavP">Hiking</a>
+                <a href="#" id="topNavP">Why outdoor activities?</a>
+                <a href="contact.html" id="topNavP">Contact us</a>
+
+                <form id="searchBar">
+                  <input type="text" class="field1" placeholder="Search.." name="search" id="searchInput">
+                  <input type="submit" class="field2" title="search" id="searchButton" value="search">
+                </form>
+
+
+
+            </nav>
+        </div>
+        <div class="grid-container">
+            <!-- body mass calculator -->
+            <div class="container">
+                <h1>BMI Calculator</h1>
+                <div class="display">
+                    <p id="result">20.0</p>
+                    <p id="category">Normal weight</p>
+                </div>
+                <div class="row">
+                    <input type="range" min="20" max="200" value="20" id="weight" oninput="calculate()">
+                    <span id="weight-val">20 kg</span>
+                </div>
+                <div class="row">
+                    <input type="range" min="100" max="250" value="100" id="height" oninput="calculate()">
+                    <span id="height-val">100 cm</span>
+                </div>
+            </div>
+            <div class="benefits">
+                <h2>Health benefits of running</h2>
+                <p>Regular running offers many health benefits. Running can:</p>
+                <ul>
+                    <li>help to build strong bones, as it is a weight bearing exercise</li>
+                    <li>strengthen muscles</li>
+                    <li>burn plenty of calories</li>
+                    <li>help maintain a healthy weight.</li>
+                </ul>
+                <p>An inactive lifestyle is associated with higher mortality, coronary artery disease, 
+                    hypertension and stroke. It is also a primary cause of most chronic diseases,
+                    as the body rapidly adapts to
+                    insufficient physical activity which results in substantially reduced quality of life.</p>
+
+            </div>
+
+
+            <div class="goal">
+                <h2>Goal setting for running</h2>
+                <ul>
+                    <li>Getting fit if you're a beginner, you should start with brisk walking, 
+                        progress to jogging and work up to running.
+                        This should take a few months.</li>
+                    <li>General fitness mix your running with other forms of exercise 
+                        (such as swimming or team sports) to maximise your overall fitness.</li>
+                    <li>Weight loss adjust your diet to include plenty of fresh fruits and vegetables, 
+                        lean meats, wholegrain cereals and low-fat dairy products.
+                        Cut back on dietary fats, takeaway foods, soft drinks and sugar.</li>
+                    <li>Companionship you could run with a friend or join a local running club</li>
+
+                </ul>
+            </div>
+            <div class="run">
+                <ul id="image_rollovers">
+                    <li><img src="images/run.jpg" alt ="run" id="images/run1.jpg" width="500"></li>
+                </ul>
+            </div>
+            <div class="advice">
+                <h2>Running for beginners</h2>
+                <h3>Some general tips for beginners:</h3>
+                <ul>
+                    <li>See your doctor for a check-up before you start a running program. 
+                        This is especially important if you are over 40 years, are overweight,
+                        have a chronic illness or haven't exercised in a long time.</li>
+                    <li>Start with brisk walking. Aim for 30 minutes per session.
+                        Allow a minimum of 8 to 12 weeks to build up to regular running</li>
+                    <li>Make sure you warm up and stretch thoroughly before you head out. 
+                        Cool your body down with light stretches when you return.</li>
+                    <li>Apply SPF 50+ sunscreen to exposed skin areas.</li>
+                </ul>
+            </div>
+        </div>   
+        <footer class="footer">
+
+            <ul class="social-icon">
+                <li class="social-icon__item"><a class="social-icon__link" href="#">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="#">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="#">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                    </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="#">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a></li>
+            </ul>
+            <ul class="menu">
+                <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                <li class="menu__item"><a class="menu__link" href="contact.html">Contact US</a></li>
+                <li class="menu__item"><a class="menu__link" href="login.html">Admin Area</a></li>
+                <li class="menu__item"><a class="menu__link" href="registration.html">Registration Page</a></li>
+
+
+
+            </ul>
+            <p>&copy;2022 BetterHealth | All Rights Reserved</p>
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+            <address>
+                <div class="address"><h1 class="h1">Written by K00274622</h1></div>
+                <p id="date"></p>
+            </address>
+
+        </footer>
+
+    </body>
+</html>
